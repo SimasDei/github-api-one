@@ -13,7 +13,31 @@
     <title>Github Api One</title>
   </head>
   <body>
-    <h1>Ahoy there Sailor o/</h1>
+    <nav class="navbar bg-secondary mb-3">
+      <div class="container">
+        <a href="#" class="navbar-brand"> Github Api </a>
+      </div>
+    </nav>
+
+    <div class="container searchContainer" style="min-height: 75vh;">
+      <div class="search card card-body">
+        <h3>Search Github Profiles</h3>
+        <p class="lead">Enter Github profile handle</p>
+        <input
+          type="text"
+          name="searchUser"
+          id="searchUser"
+          class="form-control"
+          placeholder="Github Profile"
+        />
+      </div>
+      <hr />
+      <div id="profile"></div>
+    </div>
+
+    <footer class="mt-5 p3 text-center bg-primary">
+      <h4>&copy; Github Api</h4>
+    </footer>
 
     <!-- BOOTSTRAP JS -->
     <script
