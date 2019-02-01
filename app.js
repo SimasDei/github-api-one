@@ -20,6 +20,7 @@ searchUser.addEventListener('keyup', e => {
       } else {
         // Render the Profile
         ui.showProfile(data.profile);
+        ui.showRepos(data.repositories);
       }
     });
   } else {

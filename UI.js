@@ -38,6 +38,34 @@ class UI {
    `;
   }
 
+  // Display latest profiles
+  showRepos(repositories) {
+    let output = ``;
+
+    repositories.forEach(repo => {
+      output += `
+        <div class="card card-body mb-2">
+          <div class="row">
+            <div class="col-md-6">
+              <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+            </div>
+            <div class="col-md-6">
+            <span class="badge badge-primary">Stars: ${
+              repo.stargazers_count
+            }</span>
+            <span class="badge badge-secondary">Watchers : ${
+              repo.watchers_count
+            }</span>
+            <span class="badge badge-warning">Forks: ${repo.forks_count}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    // Output repositories
+    document.getElementById('repos').innerHTML = output;
+  }
+
   // If no such profile exists, display a 'not found' message
   showAlert(message, classname) {
     // Check if alert is already displayed, and then clear it
