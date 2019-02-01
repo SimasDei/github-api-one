@@ -1,6 +1,7 @@
 // Init Github Class
 const github = new Github();
-
+// Init UI Class
+const ui = new UI();
 // Target search user input
 // Listen for on Key down event
 // Get input value
@@ -17,6 +18,7 @@ searchUser.addEventListener('keyup', e => {
         // Show an error
       } else {
         // Render the Profile
+        ui.showProfile(data.profile);
       }
     });
   } else {
