@@ -3,6 +3,7 @@ class UI {
     this.profile = document.getElementById('profile');
   }
 
+  // User = value from user input
   showProfile(user) {
     this.profile.innerHTML = `
     <div class="card card-body mb-3">
@@ -21,9 +22,7 @@ class UI {
             user.public_gists
           }</span>
           <span class="badge badge-warning">Followers: ${user.followers}</span>
-            <span class="badge badge-info">Public Following: ${
-              user.following
-            }</span>
+            <span class="badge badge-info">Following: ${user.following}</span>
          <hr /> <br />
          <ul class="list-group">
           <li class="list-group-item">Company:  ${user.company}</li>
@@ -37,5 +36,40 @@ class UI {
     <h3 class="page-heading mb-3"> Latest Projects </h3>
     <div id="repos"></div>
    `;
+  }
+
+  // If no such profile exists, display a 'not found' message
+  showAlert(message, classname) {
+    // Check if alert is already displayed, and then clear it
+    this.clearAlert();
+
+    // Create HTML element
+    const div = document.createElement('div');
+    div.className = classname;
+    div.appendChild(document.createTextNode(message));
+    // Get Parent Element
+    const container = document.querySelector('.searchContainer');
+    const search = document.querySelector('.search');
+    // Insert alert message
+    container.insertBefore(div, search);
+
+    // Set timeout, clear Potential alert after
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
+  }
+
+  // If user input value is empty, or goes back to empty
+  // Clear the currently displayed profile
+  clearProfile() {
+    this.profile.innerHTML = '';
+  }
+
+  // Clear User not found alert message
+  clearAlert() {
+    const currentAlert = document.querySelector('.alert');
+    if (currentAlert) {
+      currentAlert.remove();
+    }
   }
 }
